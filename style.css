@@ -1,5 +1,144 @@
+html {
+    --color-accent: oklch(65% 0.07 150);
+    accent-color: var(--color-accent);
+}
+
 body {
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
-    padding: 2em;
 }
+
+/* Nav Bar */
+ul, li {
+    display: contents;
+}
+
+nav {
+    display: flex;
+    margin-bottom: 0.4em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: oklch(80% 3% 200);
+}
+
+a {
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: 0.5em;
+}
+
+a.current {
+    border-bottom-width: 0.35em;
+    border-bottom-style: solid;
+    padding-bottom: 0%;
+    border-bottom-color: oklch(80% 3% 200);
+}
+
+a:hover {
+    border-bottom-width: 0.35em;
+    border-bottom-style: solid;
+    padding-bottom: 0%;
+    border-bottom-color: var(--color-accent);
+    background-color: oklch(from var(--color-accent) 95% 5% h)
+}
+
+/* Contact Page */
+
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+}
+
+label {
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+label, button {
+    grid-column: 1 / -1;
+}
+
+input, textarea, button {
+    font: inherit;
+}
+
+/* Projects Page */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+}
+
+article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+}
+
+h2 {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+/* Resume */
+/* Resume Page Styling */
+
+header {
+    text-align: center;
+    margin-block: 2em;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1em;
+    color: oklch(40% 0.05 145);
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+section h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.25em;
+}
+
+article {
+    margin-bottom: 1em;
+}
+
+article strong {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+}
+
+article p {
+    font-style: italic;
+    margin: 0.2em 0 0.5em 0;
+}
+
+ul {
+    margin: 0;
+    padding-left: 1.2em;
+    list-style-type: disc;
+}
+
+ul li {
+    margin-bottom: 0.3em;
+}
+
