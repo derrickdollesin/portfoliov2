@@ -7,29 +7,10 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li>
-                <a href="../index.html">Home</a>
-            </li>
-            <li>
-                <a href="../projects/index.html">Projects</a>
-            </li>
-            <li>
-                <a href="index.html" class="current">Contact</a>
-            </li>
-            <li>
-                <a href="../resume/index.html">Resume</a>
-            </li>
-            <li>
-                <a href="https://github.com/derrickdollesin" target="blank">GitHub</a>
-            </li>
-        </ul>
-    </nav>
 
     <h1>Contact</h1>
 
-    <form action="mailto:dollesinderrick@gmail.com" method="POST" enctype="text/plain">
+    <form action="mailto:dollesinderrick@gmail.com" method="GET">
         <label>
             Email:<input name="email" type="email">
         </label>
@@ -37,9 +18,11 @@
             Subject:<input name="subject">
         </label>
         <label>
-            Body:<textarea></textarea>
+            Body:<textarea name="body"></textarea>
         </label>
         <button type="Submit">Send</button>
+
+        <script src="../global.js"></script>
     </form>
 </body>
 </html>

@@ -61,7 +61,7 @@ label, button {
     grid-column: 1 / -1;
 }
 
-input, textarea, button {
+input, textarea, button, select {
     font: inherit;
 }
 
@@ -142,3 +142,22 @@ ul li {
     margin-bottom: 0.3em;
 }
 
+/* Dark Mode */
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  /* ... other styles and nested rules ... */
+
+  border-bottom-color: var(--border-color);
+}
+
+a:hover {
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+label.color-scheme {    
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+    font-family: inherit;
+}
