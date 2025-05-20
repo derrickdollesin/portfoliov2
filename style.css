@@ -1,6 +1,7 @@
 html {
     --color-accent: oklch(65% 0.07 150);
     accent-color: var(--color-accent);
+    font-family: system-ui, sans-serif;
 }
 
 body {
@@ -9,7 +10,7 @@ body {
 }
 
 /* Nav Bar */
-ul, li {
+nav > ul, li {
     display: contents;
 }
 
@@ -89,7 +90,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Resume */
-/* Resume Page Styling */
 
 header {
     text-align: center;
@@ -103,7 +103,6 @@ header h1 {
 
 header p {
     font-size: 1em;
-    color: oklch(40% 0.05 145);
 }
 
 section {
@@ -160,4 +159,45 @@ label.color-scheme {
     right: 1rem;
     font-size: 80%;
     font-family: inherit;
+}
+
+/* home style */
+.home-page > h1 {
+    text-align: center;
+}
+
+.home-page > h2 {
+    text-align: center;
+    padding: 0.4em;
+}
+
+#profile-stats {
+  max-width: 50em;
+  margin-bottom: 2em;
+  text-align: center;
+  padding: 1em;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  text-transform: uppercase;
+  font-family: system-ui, sans-serif;
+  font-size: 0.875em;
+  color: gray;
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  font-weight: 500;
+  margin-bottom: 0.25em;
+  color: #6b7280; /* Tailwind-style gray */
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  font-size: 1.75em;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-accent);
 }
