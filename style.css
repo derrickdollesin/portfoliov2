@@ -10,10 +10,6 @@ body {
 }
 
 /* Nav Bar */
-nav > ul, li {
-    display: contents;
-}
-
 nav {
     display: flex;
     margin-bottom: 0.4em;
@@ -77,16 +73,113 @@ input, textarea, button, select {
 article {
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 3;
+    grid-row: span 4;
 }
 
 h2 {
     margin: 0;
+    padding-top: 0.4em;
 }
 
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
     text-wrap: balance;
+}
+
+.container {
+    display: flex; 
+    align-items: center; 
+    gap: 1em;
+}
+
+.searchBar {
+    display: flex;
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 20px; 
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.search-controls {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 1em;
+    width: 100%; /* Make the controls span full container width */
+}
+
+#clearFilters {
+    padding: 0.05em 1em;
+    width: 100%;
+    border-radius: 20px; /* Rounded edges for button too */
+    font-size: 1em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+
+    overflow: visible;
+}
+
+/* pie chart */
+&:has(path:hover) {
+    path:not(:hover) {
+        opacity: 0.5;
+    }
+}
+
+path {
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+
+
+/* Legend Container */
+span {
+    display: inline-block;
+}
+
+.legend {
+    flex: 1;
+    display: grid; /* Flexible layout */
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr)); /* Responsive grid */
+    gap: 1em; /* Space between legend items */
+    padding: 1em;
+    border: 1px solid #ccc;
+    list-style: none;
+    margin: 1em 0;
+    border-radius: 8px; 
+    margin-left: 2em;
+    align-items: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* <-- Center horizontally */
+    gap: 0.5em; /* Keep gap between swatch and text consistent */
+}
+
+.swatch {
+    width: 1em;
+    height: 1em;
+    background-color: var(--color); /* Uses the color set by D3 */
+    border-radius: 50%; 
+    display: inline-block; /* Ensure swatch respects width/height */
 }
 
 /* Resume */
