@@ -294,3 +294,107 @@ label.color-scheme {
   margin: 0;
   color: var(--color-accent);
 }
+
+/* meta data */
+#stats {
+  max-width: 50em;
+  margin-bottom: 2em;
+  padding: 1em;
+}
+
+#stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#stats dt {
+  grid-row: 1;
+  font-size: 75%;
+  color: #6b7280;
+}
+
+#stats dd {
+  grid-row: 2;
+  text-align: left;
+  margin: auto;
+  font-size: 125%;
+}
+
+/* Make gridlines lighter */
+.gridlines line {
+  stroke: lightgray; /* Use a light gray color */
+  stroke-opacity: 0.5; /* Optional: make it semi-transparent */
+}
+
+/* Optional: Make axis lines lighter */
+.axis path,
+.axis line {
+  stroke: lightgray;
+  stroke-opacity: 0.5;
+}
+
+dl.info {
+   display: grid;
+   margin: 0;
+   transition-duration: 500ms;
+   transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+dt.info {
+    grid-column: 1;
+    font-size: 75%;
+}
+
+dd.info {
+    grid-column: 2;
+    font-size: 125%;
+}
+
+.tooltip {
+    position: fixed;
+    pointer-events: none; /* Allow clicks to pass through */
+    top: 1em;
+    left: 1em;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for elevation */
+    border-radius: 6px; /* Rounded corners */
+    padding: 0.5em 1em; /* Internal spacing */
+    backdrop-filter: blur(4px); /* Optional: frosted glass effect */
+    z-index: 10; /* Bring to front */
+    transform: translate(10px, 10px); /* Small offset from cursor */
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
