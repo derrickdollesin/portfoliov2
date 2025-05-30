@@ -179,12 +179,9 @@ function brushed(event) {
   renderLanguageBreakdown(selection);
 }
 
-function createBrushSelector(svg) {
+function createBrushSelector(layer) {
   // Create brush
-  svg.call(d3.brush().on('start brush end', brushed));
-
-  // Raise dots and everything after overlay
-  svg.selectAll('.dots, .overlay ~ *').raise();
+  layer.call(d3.brush().on('start brush end', brushed));
 }
 
 function renderScatterPlot(data, commits) {
@@ -220,6 +217,10 @@ function renderScatterPlot(data, commits) {
     
   const sortedCommits = d3.sort(commits, (a, b) => d3.descending(a.totalLines, b.totalLines));
 
+  const brushLayer = svg.insert('g', ':first-child')  // Insert as first child (below dots)
+    .attr('class', 'brush-layer');
+  createBrushSelector(brushLayer);
+
   dots
     .selectAll('circle')
     .data(sortedCommits)
@@ -239,8 +240,6 @@ function renderScatterPlot(data, commits) {
       d3.select(event.currentTarget).style('fill-opacity', 0.7);
       updateTooltipVisibility(false);
     });
-    
-  createBrushSelector(svg);
     
   const margin = { top: 10, right: 10, bottom: 30, left: 20 };
 
